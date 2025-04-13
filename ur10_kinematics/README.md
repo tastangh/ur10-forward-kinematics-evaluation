@@ -132,10 +132,10 @@ Pozisyon ve oryantasyon değerleri arasındaki fark milimetre ve onbinde seviyes
 **4. Önden Görünüm**  
 ![genel](./4.jpg)
 
-**5. Üstten Görünüm 1**  
+**5. Detay Görünüm**  
 ![detay1](./5.jpg)
 
-**6. Genel Görünüm 2**  
+**6. Detay Görünüm**  
 ![detay2](./6.jpg)
 
 
