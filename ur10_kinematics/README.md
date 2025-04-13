@@ -120,22 +120,22 @@ Pozisyon ve oryantasyon değerleri arasındaki fark milimetre ve onbinde seviyes
 
 ## Simülasyon Görselleri
 
-**1. Üstten Görünüm**  
+**1. Yandan Görünüm**  
 ![ustten](./1.jpg)
 
-**2. Önden Görünüm**  
+**2. Yandan Görünüm**  
 ![onden](./2.jpg)
 
-**3. Soldan Görünüm**  
+**3. Alttan Görünüm**  
 ![soldan](./3.jpg)
 
-**4. Genel Görünüm**  
+**4. Önden Görünüm**  
 ![genel](./4.jpg)
 
-**5. Detay Görünüm 1**  
+**5. Üstten Görünüm 1**  
 ![detay1](./5.jpg)
 
-**6. Detay Görünüm 2**  
+**6. Genel Görünüm 2**  
 ![detay2](./6.jpg)
 
 
