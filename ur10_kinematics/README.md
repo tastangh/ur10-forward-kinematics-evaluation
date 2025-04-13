@@ -82,9 +82,62 @@ pkill -9 roscore
 
 ---
 
-## Görseller
 
-*Simülasyon ortamından üstten, önden, yandan ve genel görünüş alınmış ekran görüntüleri bu bölüme eklenecektir.*
+Harika, teorik ve simülasyon sonuçların neredeyse birebir örtüşüyor 🎯 Bu da kinematik modelinin doğru çalıştığını gösteriyor. Şimdi bu verileri senin adına `README.md` dosyasına profesyonelce ekliyorum.
+
+---
+
+## 📄 `README.md`'ye Eklenecek Kısım:
+
+Aşağıdaki bölümü senin dosyana ekle, istersen ben sana dosya halinde de verebilirim.
+
+---
+
+### 📐 Teorik ve Simülasyon Sonuçları Karşılaştırması
+
+Bu bölümde, belirlenen açı değerleri için UR10 robot kolunun uç efektör pozisyonu teorik olarak hesaplanmış ve Gazebo simülasyon çıktıları ile karşılaştırılmıştır.
+
+#### 🔧 Kullanılan Eklemler (Joint Angles):
+```
+[0.5, -0.2, 0.6, -0.6, -0.4, 0.5]
+```
+
+#### 📍 Karşılaştırma Tablosu:
+
+| Pozisyon Tipi         | X         | Y         | Z         |
+|------------------------|-----------|-----------|-----------|
+| **Teorik Hesap**       | 0.912242  | 0.865278  | 1.925900  |
+| **Simülasyon Çıktısı** | 0.912306  | 0.864726  | 1.925880  |
+
+| Oryantasyon Tipi      | X         | Y         | Z         | W         |
+|------------------------|-----------|-----------|-----------|-----------|
+| **Teorik Hesap**       | 0.0297709 | 0.158760  | 0.0589268 | 0.985107  |
+| **Simülasyon Çıktısı** | 0.0297512 | 0.158736  | 0.0589249 | 0.985112  |
+
+####  Değerlendirme:
+Pozisyon ve oryantasyon değerleri arasındaki fark milimetre ve onbinde seviyesinde olup, fiziksel simülasyon ortamının toleransları dahilindedir. Bu sonuç, ileri kinematik modellemenin doğruluğunu onaylamaktadır.
+
+
+## Simülasyon Görselleri
+
+**1. Üstten Görünüm**  
+![ustten](./1.jpg)
+
+**2. Önden Görünüm**  
+![onden](./2.jpg)
+
+**3. Soldan Görünüm**  
+![soldan](./3.jpg)
+
+**4. Genel Görünüm**  
+![genel](./4.jpg)
+
+**5. Detay Görünüm 1**  
+![detay1](./5.jpg)
+
+**6. Detay Görünüm 2**  
+![detay2](./6.jpg)
+
 
 ---
 
