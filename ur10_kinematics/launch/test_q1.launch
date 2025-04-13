@@ -1,4 +1,0 @@
-<launch>
-  <node pkg="ur10_kinematics" type="publisher_node" name="publisher_node" output="screen" />
-  <node pkg="ur10_kinematics" type="compare_with_sim" name="compare_with_sim" output="screen" />
-</launch>

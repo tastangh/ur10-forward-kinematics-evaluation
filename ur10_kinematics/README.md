@@ -1,113 +1,85 @@
-### 📄 `README.md`
+# UR10 Forward Kinematics - HW2 Soru 1
 
-```markdown
-# UR10 Forward Kinematics (HW2 - Q1)
+## Proje Açıklaması
 
-Bu ROS paketi, BLM6191 Robotlar dersi kapsamında verilen Ödev 2’nin Soru 1 kısmını gerçekleştirmek için hazırlanmıştır. UR10 robot kolunun ileri kinematik modeli kullanılarak, belirli eklem açıları için uç efektörün pozisyonu hesaplanmakta ve simülasyon ortamındaki sonuçlarla karşılaştırılmaktadır.
-
-## 🧾 İçerik
-
-- `src/forward_kinematics.cpp`: UR10 robot kolunun ileri kinematik denklemini çözerek uç efektör pozisyonunu hesaplar.
-- `src/publisher_node.cpp`: Belirli açı değerlerini `/ur10_arm/acilar` topic’ine gönderir.
-- `src/compare_with_sim.cpp`: Simülasyon ortamından `/ur10_arm/odometri` verisini alır ve teorik pozisyon ile farkını karşılaştırır.
-- `launch/test_q1.launch`: Yukarıdaki iki node'u birlikte başlatır.
+Bu ROS paketi, UR10 robot kolunun ileri kinematik hesabını gerçekleştirmek ve simülasyon ortamındaki sonuçlarla karşılaştırmak amacıyla geliştirilmiştir. Açı bilgisi simülasyona gönderilir, simülasyondan alınan uç efektör konumu teorik hesapla karşılaştırılır.
 
 ---
 
-## 🚀 Kurulum ve Derleme
+## Kurulum
 
-1. ROS çalışma alanınızı oluşturun:
-
-```bash
-mkdir -p ~/robotlar_ws/src
-cd ~/robotlar_ws/src
-catkin_init_workspace
-```
-
-2. Bu paketi `src` klasörüne ekleyin:
+### 1. Gazebo Simülasyon Ortamını Klonlayın
 
 ```bash
 cd ~/robotlar_ws/src
-git clone <bu paketin deposu veya zip'ten çıkarılan klasör>
+git clone https://gitlab.com/blm6191_2425b_tai/blm6191/gazebo_plugins_rtg.git
 ```
 
-3. Gerekli modelleri kopyalayın:
+### 2. Bağımlılıkları Kurun ve Ortamı Derleyin
 
 ```bash
 cd ~/robotlar_ws
 rosdep install -a
 catkin_make
+source ~/.bashrc
 cp -r src/gazebo_plugins_rtg/models/ur10 ~/.gazebo/models
-```
-
-4. Ortam değişkenlerini yükleyin:
-
-```bash
-source devel/setup.bash
 ```
 
 ---
 
-## ▶️ Çalıştırma Adımları
-
-### 1. Simülasyonu başlatın
+## Simülasyonu Başlatma
 
 ```bash
 roslaunch gazebo_plugins_rtg ur10.launch
 ```
 
-Bu komut UR10 robot kolunu simülasyon ortamında çalıştırır.
+---
 
-### 2. Node'ları başlatın
-
-Aşağıdaki komutla açıları gönderip odometri verisiyle teorik hesapları karşılaştırabilirsiniz:
+## Teorik Kinematik Hesabı
 
 ```bash
-roslaunch ur10_kinematics test_q1.launch
+rosrun ur10_kinematics forward_kinematics
 ```
 
-Alternatif olarak, her node'u ayrı terminalde çalıştırabilirsiniz:
+Bu komut, tanımlı açı setine göre uç efektörün teorik konumunu (`x, y, z`) hesaplar ve terminale yazdırır.
+
+---
+
+---
+
+## Simülasyon Hızını Artırma (Opsiyonel)
 
 ```bash
-rosrun ur10_kinematics publisher_node
-rosrun ur10_kinematics compare_with_sim
+gz physics -u 10000
 ```
 
 ---
 
-## 📌 Test Açı Seti
+## Kamera Ayarı
 
-Aşağıdaki eklem açıları kullanılmıştır (radyan cinsinden):
-
-```cpp
-[0.5, -0.2, 0.6, -0.6, -0.4, 0.5]
-```
+Gazebo'da daha net gözlem yapmak için kamerayı robot koluna göre döndürerek pozisyon ayarlayın.
 
 ---
 
-## 📷 Örnek Simülasyon Görüntüsü
-
-*(Ekran görüntülerini buraya ekleyiniz — üstten, önden, yandan ve genel görünüş olacak şekilde 4 farklı açıdan.)*
-
----
-
-## 🧪 Örnek Çıktı
+## Simülasyonu Durdurma
 
 ```bash
-Sim pozisyon:     1.184 0.335 2.011
-Teorik pozisyon:  1.179 0.341 2.009
-Fark (m):         0.007
+rosnode kill -a
+pkill -9 gzserver
+pkill -9 gzclient
+pkill -9 roscore
 ```
 
 ---
 
-## 👨‍💻 Hazırlayan
+## Görseller
+
+*Simülasyon ortamından üstten, önden, yandan ve genel görünüş alınmış ekran görüntüleri bu bölüme eklenecektir.*
+
+---
+
+## Hazırlayan
 
 Mehmet Taştan  
-BLM6191 - Robotlar  
-Yıldız Teknik Üniversitesi  
+Yıldız Teknik Üniversitesi – BLM6191 Robotlar Dersi
 ```
-
----
-
-Bu `README.md` dosyası ödev kriterlerini karşıladığı gibi, kodu test etmek isteyen herkesin rahatlıkla çalıştırabilmesini sağlar.
