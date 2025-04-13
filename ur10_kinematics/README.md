@@ -25,7 +25,17 @@ source ~/.bashrc
 cp -r src/gazebo_plugins_rtg/models/ur10 ~/.gazebo/models
 ```
 
----
+### Compile and Update Environment
+After every change, compile the code using the following commands:
+```bash
+rosnode kill -a   
+pkill -9 gzserver
+pkill -9 gzclient
+pkill -9 roscore
+cd ~/robotlar_ws
+catkin_make
+source ~/.bashrc
+```
 
 ## Simülasyonu Başlatma
 

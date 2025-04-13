@@ -17,8 +17,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
 )
-add_executable(auto_compare_node src/auto_compare_node.cpp)
-target_link_libraries(auto_compare_node ${catkin_LIBRARIES})
 
 add_executable(forward_kinematics src/forward_kinematics.cpp)
 target_link_libraries(forward_kinematics ${catkin_LIBRARIES})
