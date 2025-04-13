@@ -55,6 +55,16 @@ Bu komut, tanımlı açı setine göre uç efektörün teorik konumunu (`x, y, z
 
 ---
 
+##  Eklemlere açı gönderme
+```bash
+rostopic pub /ur10_arm/acilar std_msgs/Float32MultiArray "data: [0.5, -0.2, 0.6, -0.6, -0.4, 0.5]"
+```
+
+##   Simülasyon pozisyon verisini alma
+```bash
+rostopic echo /ur10_arm/odometri
+```
+
 ---
 
 ## Simülasyon Hızını Artırma (Opsiyonel)
